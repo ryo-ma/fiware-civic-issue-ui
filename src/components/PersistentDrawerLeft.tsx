@@ -1,4 +1,5 @@
 import React from "react";
+import dynamic from 'next/dynamic'
 import clsx from "clsx";
 import {
   makeStyles,
@@ -20,8 +21,11 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import Fab from "@material-ui/core/Fab";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import EditIcon from "@material-ui/icons/Edit";
+import PostButton from './PostButton'
 
 const drawerWidth = 240;
 
@@ -67,7 +71,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     content: {
       flexGrow: 1,
-      padding: theme.spacing(3),
+      //padding: theme.spacing(3),
       transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
@@ -96,6 +100,7 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const Map: any = dynamic(() => import('../components/Map'), { ssr: false });
 
   return (
     <div className={classes.root}>
@@ -117,7 +122,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            地域課題マップ
           </Typography>
         </Toolbar>
       </AppBar>
@@ -167,9 +172,11 @@ export default function PersistentDrawerLeft() {
           [classes.contentShift]: open,
         })}
       >
-        <div className={classes.drawerHeader} />
-        <Typography paragraph>
-        </Typography>
+      <div style={{height: "100vh"}}>
+        <Map />
+        <PostButton />
+      </div>
+
       </main>
     </div>
   );
