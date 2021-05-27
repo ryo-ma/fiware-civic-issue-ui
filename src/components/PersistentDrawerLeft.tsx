@@ -85,6 +85,11 @@ const useStyles = makeStyles((theme: Theme) =>
       }),
       marginLeft: 0,
     },
+    rightBottomButton: {
+      bottom: theme.spacing(2),
+      right: theme.spacing(2),
+      position: "absolute"
+    }
   })
 );
 
@@ -146,7 +151,7 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          {["マイページ"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -157,7 +162,7 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
         <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
+          {["課題一覧", "使い方", "問合せ"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -174,7 +179,9 @@ export default function PersistentDrawerLeft() {
       >
       <div style={{height: "100vh"}}>
         <Map />
-        <PostButton />
+        <div className={classes.rightBottomButton}>
+          <PostButton />
+        </div>
       </div>
 
       </main>
