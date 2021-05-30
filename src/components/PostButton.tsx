@@ -14,18 +14,23 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     extendedIcon: {
       marginRight: theme.spacing(1),
-    }
+    },
   })
 );
 
 const PostButton = () => {
   const classes = useStyles();
-  return(
-    <Fab className={classes.postButton} color="secondary" variant="extended" aria-label="edit">
+  return (
+    <Fab
+      className={classes.postButton}
+      color="secondary"
+      variant="extended"
+      aria-label="edit"
+    >
       <EditIcon className={classes.extendedIcon} />
       地域の課題を投稿してみよう
     </Fab>
   );
-}
+};
 
-export default PostButton
+export default PostButton;

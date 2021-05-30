@@ -1,5 +1,5 @@
 import React from "react";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import clsx from "clsx";
 import {
   makeStyles,
@@ -25,7 +25,7 @@ import Fab from "@material-ui/core/Fab";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import EditIcon from "@material-ui/icons/Edit";
-import PostButton from './PostButton'
+import PostButton from "./PostButton";
 
 const drawerWidth = 240;
 
@@ -88,8 +88,8 @@ const useStyles = makeStyles((theme: Theme) =>
     rightBottomButton: {
       bottom: theme.spacing(2),
       right: theme.spacing(2),
-      position: "absolute"
-    }
+      position: "absolute",
+    },
   })
 );
 
@@ -105,7 +105,7 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const Map: any = dynamic(() => import('../components/Map'), { ssr: false });
+  const Map: any = dynamic(() => import("../components/Map"), { ssr: false });
 
   return (
     <div className={classes.root}>
@@ -177,13 +177,12 @@ export default function PersistentDrawerLeft() {
           [classes.contentShift]: open,
         })}
       >
-      <div style={{height: "100vh"}}>
-        <Map />
-        <div className={classes.rightBottomButton}>
-          <PostButton />
+        <div style={{ height: "100vh" }}>
+          <Map />
+          <div className={classes.rightBottomButton}>
+            <PostButton />
+          </div>
         </div>
-      </div>
-
       </main>
     </div>
   );
